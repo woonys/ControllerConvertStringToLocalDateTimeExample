@@ -16,7 +16,7 @@ public class UpdateDateController {
     public UpdateDateController(UpdateDateService updateDateService) {
         this.updateDateService = updateDateService;
     }
-
+    // Case 1: String -> Date 변환 로직 포함한 기능 구현
     public String updateDateFromString(@RequestBody UpdateDateRequestWithString request) {
         String fetchDate = request.getDateAsString();
         long dateId = request.getId();
