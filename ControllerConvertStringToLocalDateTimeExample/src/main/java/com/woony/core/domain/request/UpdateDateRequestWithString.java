@@ -8,6 +8,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateDateRequestWithString {
-    private long id;
     private String dateAsString;
 }

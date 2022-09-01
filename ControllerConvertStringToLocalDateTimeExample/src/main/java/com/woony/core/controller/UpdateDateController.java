@@ -1,5 +1,9 @@
 package com.woony.core.controller;
 
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,9 +21,9 @@ public class UpdateDateController {
         this.updateDateService = updateDateService;
     }
     // Case 1: String -> Date 변환 로직 포함한 기능 구현
-    public String updateDateFromString(@RequestBody UpdateDateRequestWithString request) {
+    @PutMapping("/updateDate/{dateId}")
+    public String updateDateFromString(@PathVariable long dateId, @RequestBody UpdateDateRequestWithString request) {
         String fetchDate = request.getDateAsString();
-        long dateId = request.getId();
         updateDateService.updateCurrentDate(dateId, fetchDate);
         return "Success";
     }

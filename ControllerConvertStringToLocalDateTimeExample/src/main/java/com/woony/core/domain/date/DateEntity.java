@@ -10,10 +10,12 @@ import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
 @Getter
+@Setter
 public class DateEntity {
 
     @Id
@@ -24,5 +26,6 @@ public class DateEntity {
     private String title;
 
     @Column(name = "date_time")
-    private LocalDateTime DateTime;
+    private LocalDateTime dateTime;
+
 }
