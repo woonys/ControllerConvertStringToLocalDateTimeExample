@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +16,6 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @Getter
-@Setter
 public class DateEntity {
 
     @Id
@@ -27,5 +27,16 @@ public class DateEntity {
 
     @Column(name = "date_time")
     private LocalDateTime dateTime;
+
+    @Builder
+    public DateEntity(Long id, String title, LocalDateTime dateTime) {
+        this.id = id;
+        this.title = title;
+        this.dateTime = dateTime;
+    }
+
+    public void updateDate(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 
 }
